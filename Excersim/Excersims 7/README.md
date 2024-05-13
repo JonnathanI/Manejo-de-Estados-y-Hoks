@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Conversión de ADN a ARN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este script convierte una cadena de ADN en su correspondiente cadena de ARN.
 
-Currently, two official plugins are available:
+## Interfaz `M`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La interfaz `M` define un tipo de objeto con claves (keys) de tipo string y valores (values) de tipo string. Esto significa que el objeto puede contener cualquier cantidad de claves de tipo string, y cada clave debe tener un valor asociado de tipo string.
 
-## Expanding the ESLint configuration
+## Objeto `Map`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+El objeto `Map` contiene un mapeo de las bases nitrogenadas del ADN a sus correspondientes bases nitrogenadas del ARN. Por ejemplo, 'G' en ADN se convierte en 'C' en ARN, 'C' en ADN se convierte en 'G' en ARN, etc.
 
-- Configure the top-level `parserOptions` property like this:
+## Función `toRna`
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+La función `toRna` toma una cadena de ADN como entrada y devuelve su correspondiente cadena de ARN. Primero verifica si la cadena de ADN contiene algún carácter que no sea 'A', 'C', 'G' o 'T'. Si encuentra alguno, lanza un error indicando que la entrada de ADN es inválida. Luego, utiliza expresiones regulares para reemplazar cada base nitrogenada de la cadena de ADN por su correspondiente base nitrogenada de la cadena de ARN, utilizando el objeto `Map`.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Exportación de `toRna`
+
+Finalmente, la función `toRna` se exporta como la función predeterminada del módulo, lo que significa que puede ser importada y utilizada en otros archivos de código.
+
+Esta documentación explica cómo funciona el código en su conjunto, desde la definición de la interfaz hasta la exportación de la función de conversión de ADN a ARN. Si necesitas más detalles o explicaciones sobre alguna parte específica, ¡no dudes en preguntar!
